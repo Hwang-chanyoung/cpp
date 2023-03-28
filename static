@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+class counter {
+private:
+    static int count;
+public:
+    counter() {
+        count++;
+    }
+
+    static int getCount() {
+        return count;
+    }
+};
+
+int counter::count = 0; // static 멤버 변수 초기화
+
+int main() {
+    counter obj1, obj2, obj3;
+    cout << "현재 객체 수: " << counter::getCount() << endl;
+    return 0;
+}
