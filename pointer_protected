@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+class CPoly {
+protected:  //상속
+    int w,h;
+};
+
+class CRect : public CPoly {
+    int w, h;
+    
+public:
+    CRect(int x, int y) {
+        w = x;
+        h = y;
+    }
+    void Area() {
+        cout << w*h << endl;
+    }
+};
+
+int main(){
+    CRect* r = new CRect(1,2);    //'new' = 동적 메모리 할당 연산자
+    r -> Area(); // 포인터 r을 이용해 Area 함수 호출
+    delete r; // 동적 할당한 메모리 해제
+    return 0;
+}
