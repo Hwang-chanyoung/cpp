@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+class CRect {
+    int w, h;
+public:
+    CRect() {
+        w = 2; 
+        h = 4;
+    }
+    int Area(){
+        return (w * h);
+    }
+    
+friend class CTri; // CRect 클래스에서 CTri 클래스의 멤버에 접근할 수 있음.
+};
+
+class CTri{
+public:
+    int Area(){
+        CRect r;
+        return (r.w*r.h/2);
+    }
+};
+int main () {
+  CRect r;
+  CTri t;
+  cout << t.Area() << endl;
+  return 0;
+}
